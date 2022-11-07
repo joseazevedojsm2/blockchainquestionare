@@ -33,7 +33,7 @@ public class AnswerService {
                 }).findFirst();
 
         if (client.isEmpty())
-            return null;
+            return new Client();
 
         return client.get();
     }

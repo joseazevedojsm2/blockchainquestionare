@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/questions")
+@CrossOrigin
 public class AnswerController {
 
     @Autowired
