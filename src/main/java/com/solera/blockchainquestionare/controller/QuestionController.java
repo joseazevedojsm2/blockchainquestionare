@@ -20,4 +20,5 @@ public class QuestionController {
     public List<Question> retrieveAllQuestions(){
         return service.getAllQuestions();
     }
+
 }

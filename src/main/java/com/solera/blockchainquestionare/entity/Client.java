@@ -24,6 +24,10 @@ public class Client {
         this.email = email;
     }
 
+    public Client(String email) {
+        this.email = email;
+    }
+
     public Integer getId() {
         return id;
     }
