@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { Link, useParams } from "react-router-dom";
+
 import "./Login.css";
 const Login = () => {
   const [userEmail, setUserEmail] = useState("");
 
   const userEmailChangeHandler = (event) => {
-    console.log(event.target.value);
     setUserEmail(event.target.value);
   };
 
@@ -13,12 +14,15 @@ const Login = () => {
     var response = await fetch(url);
     var data = await response.json();
 
-    if(data.id!==null)
-         return;
+    if (data.id !== null) {
+      setUserEmail("");
+      return;
+    }
+    console.log(data);
 
     url = "http://localhost:8080/questions/" + userEmail;
-    response = await fetch(url,{
-        method: "POST"
+    response = await fetch(url, {
+      method: "POST",
     });
 
     data = await response.json();
@@ -34,7 +38,7 @@ const Login = () => {
     <div class="container">
       <div class="screen">
         <div class="screen__content">
-          <form class="login" onSubmit={submitHandler} >
+          <form class="login" onBlur={submitHandler}>
             <div class="login__field">
               <i class="login__icon fas fa-user"></i>
               <input
@@ -42,12 +46,17 @@ const Login = () => {
                 class="login__input"
                 placeholder="User Email"
                 onChange={userEmailChangeHandler}
+                on
               />
             </div>
-            <button class="button login__submit" >
-              <span class="button__text">Go to Questionare</span>
-              <i class="button__icon fas fa-chevron-right"></i>
-            </button>
+            {userEmail !== "" && (
+              <Link to={`/${userEmail}/questions`}>
+                <button class="button login__submit">
+                  <span class="button__text">Go to Questionare</span>
+                  <i class="button__icon fas fa-chevron-right"></i>
+                </button>
+              </Link>
+            )}
           </form>
         </div>
         <div class="screen__background">
