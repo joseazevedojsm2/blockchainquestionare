@@ -74,7 +74,7 @@ const Card = (props) => {
       </div>
       {isFinished===true && 
           <Link to={`/${props.email}/results`} state={ total } >
-            <button >See results</button>
+            <button class = "bResults">See results</button>
           </Link>
         }
     </main>

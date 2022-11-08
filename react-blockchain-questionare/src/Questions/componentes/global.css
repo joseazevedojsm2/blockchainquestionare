@@ -89,6 +89,16 @@
     margin-right: 5px;
   }
 
+  .bResults{
+    display: inline-block; 
+    background-color:white; 
+    color:#234668; 
+    margin-left: 10px; 
+    margin-top:50px; 
+
+
+  }
+
   .correct,
 .correct:hover {
   background-color: #2f922f;
