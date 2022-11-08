@@ -2,10 +2,10 @@ const opciones = [
 
     {
         opciones: [
-          { textoRespuesta: "JavaScript", isCorrect: true },
-          { textoRespuesta: "PHP", isCorrect: false },
-          { textoRespuesta: "C++", isCorrect: false },
-          { textoRespuesta: "Kotlin", isCorrect: false },
+          { textoRespuesta: "0-10", isCorrect: true },
+          { textoRespuesta: "20-50", isCorrect: false },
+          { textoRespuesta: "50-100", isCorrect: false },
+          { textoRespuesta: ">100", isCorrect: false },
         ]
       }
 ]

@@ -16,8 +16,8 @@ const Questions = () => {
 
   return (
     <div>
-      <button onClick={fetchQuestions}> </button>
-      <h1>Hello {params.email}</h1>
+      <button onClick={fetchQuestions}> Fill Questionare </button>
+      <p>.</p>
       {questions !== null && <Card questions={questions}></Card>}
     </div>
   );

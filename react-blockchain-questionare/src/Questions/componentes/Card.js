@@ -3,18 +3,22 @@ import "./global.css";
 import { useState, useEffect } from "react";
 
 const Card = (props) => {
-  var i=0;
+  var i = 0;
   console.log();
   const [preguntaActual, setPreguntaActual] = useState(
-    props.questions[0].question  );
-   const [puntuacion, setPuntuacion]=useState(0);
-   const [isFinished, setIsFiniched]=useState(false);
+    props.questions[0].question
+  );
+  const [puntuacion, setPuntuacion] = useState(0);
+  const [isFinished, setIsFiniched] = useState(false);
+  const [count, setCount] = useState(0);
 
   function handleAnswerSubmit(e) {
-    if(props.questions[i] === props.questions.length -1){
+    if (props.questions[count] === props.questions.length - 1) {
       setIsFiniched(true);
     } else {
-    setPreguntaActual(props.questions[i++] );
+      setCount(count + 1);
+      console.log(props.questions[count + 1]);
+      setPreguntaActual(props.questions[count + 1].question);
     }
   }
 
@@ -22,22 +26,21 @@ const Card = (props) => {
     <main className="app">
       <div className="lado-izquierdo">
         <div className="pregunta-numero">
-          <span>Pregunta {i+1}/ </span> {props.questions.length}
+          <span>Pregunta {count + 1}/ </span> {props.questions.length}
         </div>
-        <div className="pregunta-titulo">
-          {props.questions[i].question}
-        </div>
+        <div className="pregunta-titulo">{props.questions[count].question}</div>
       </div>
       <div className="lado-derecho">
-        {opciones.map((respuesta) => (
-          <button
-            key={respuesta.textoRespuesta}
-            onClick={(e) => handleAnswerSubmit(e)}
-          >
-            {" "}
-            {respuesta.textoRespuesta}{" "}
-          </button>
-        ))}
+        {opciones.map((respuesta) =>
+          respuesta.opciones.map((quest) => (
+            <button
+              key={quest.textoRespuesta}
+              onClick={(e) => handleAnswerSubmit(e)}
+            >
+              {console.log(quest)} {quest.textoRespuesta}{" "}
+            </button>
+          ))
+        )}
       </div>
     </main>
   );
