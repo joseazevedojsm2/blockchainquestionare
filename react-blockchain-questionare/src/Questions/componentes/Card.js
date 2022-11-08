@@ -7,6 +7,7 @@ import { Link, useParams,useLocation } from "react-router-dom";
 const Card = (props) => {
   var i = 0;
   console.log();
+  var number = props.questions.length;
   const [preguntaActual, setPreguntaActual] = useState(
     props.questions[0].question
   );
@@ -73,7 +74,7 @@ const Card = (props) => {
         )}
       </div>
       {isFinished===true && 
-          <Link to={`/${props.email}/results`} state={ total } >
+          <Link to={`/${props.email}/results`} state={ {result:{total}, nmb:{number}}} >
             <button class = "bResults">See results</button>
           </Link>
         }

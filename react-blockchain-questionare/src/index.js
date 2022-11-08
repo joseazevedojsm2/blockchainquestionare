@@ -9,7 +9,8 @@ import Results from "./Results/Results";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  // Fetch only once React
+  <React.StrictMode> 
     <BrowserRouter>
       <Routes>
         <Route path="/" element={ <App /> }></Route>
