@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Questions from "./Questions/Questions";
 import { BrowserRouter,Route,Routes } from "react-router-dom";
+import Results from "./Results/Results";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -13,6 +14,7 @@ root.render(
       <Routes>
         <Route path="/" element={ <App /> }></Route>
         <Route path="/:email/questions" element={<Questions email={'No Email'} />} />
+        <Route path="/:email/results" element={<Results email={'No Email'} />} />
       </Routes>
     </BrowserRouter>
 

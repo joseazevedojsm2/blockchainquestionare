@@ -18,7 +18,7 @@ const Questions = () => {
     <div>
       <button onClick={fetchQuestions}> Fill Questionare </button>
       <p>.</p>
-      {questions !== null && <Card questions={questions}></Card>}
+      {questions !== null && <Card email={params.email} questions={questions}></Card>}
     </div>
   );
 };
