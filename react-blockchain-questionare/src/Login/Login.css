@@ -137,7 +137,10 @@ body {
 	transition: .2s;
 }
 
-.login__submit:active,
+.login__submit:active{
+	color: white;
+}
+
 .login__submit:focus,
 .login__submit:hover {
 	border-color: #6A679E;

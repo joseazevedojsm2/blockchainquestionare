@@ -1,11 +1,24 @@
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./Login.css";
 const Login = () => {
   const [userEmail, setUserEmail] = useState("");
+  const [error, setError] = useState(null);
+
+
+  function isValidEmail(email) {
+    return /\S+@\S+\.\S+/.test(email);
+  }
 
   const userEmailChangeHandler = (event) => {
+
+    if (!isValidEmail(event.target.value)) {
+      setError('Email is invalid');
+    } else {
+      setError(null);
+    }
+
     setUserEmail(event.target.value);
   };
 
@@ -42,14 +55,15 @@ const Login = () => {
             <div class="login__field">
               <i class="login__icon fas fa-user"></i>
               <input
-                type="text"
+                type="email" 
                 class="login__input"
                 placeholder="User Email"
                 onChange={userEmailChangeHandler}
-                on
+                required
               />
+              
             </div>
-            {userEmail !== "" && (
+            {userEmail !== "" && error === null && (
               <Link to={`/${userEmail}/questions`}>
                 <button class="button login__submit">
                   <span class="button__text">Go to Questionare</span>
